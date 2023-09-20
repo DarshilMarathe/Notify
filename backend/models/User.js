@@ -23,7 +23,7 @@ const UserSchema = new Schema({
 
 
 const User = mongoose.model('user',UserSchema) ;
-User.createIndexes();
+User.createIndexes();   //correspondes to email...can check in compass
 module.exports = User;
 
 
