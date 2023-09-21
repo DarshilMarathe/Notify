@@ -125,6 +125,7 @@ router.post('/login',[
      } catch (error) {
         console.log(error.message)
         res.status(500).send("Internal Server Error Occured");
+        // console.log("error")
      }
 
 })
