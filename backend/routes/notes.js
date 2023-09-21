@@ -91,4 +91,34 @@ router.put('/updatenote/:id',fetchuser,async (req,res)=>{
 })
 
 
+//ROUTE4 : Delete note : DELETE 'api/notes/deletenote:id' Requires Auth Login
+router.delete('/deletenote/:id',fetchuser,async (req,res)=>{
+
+    try {
+    
+    //Find note to be deleted
+    let note = await Notes.findById(req.params.id); // params.id -> from url
+
+    if(!note) {return res.status(404).send("Not Found")}
+
+    //Allow only if user owns this note
+    if(note.user.toString() !== req.user.id){
+        return res.status(401).send("Not Alllowed");
+    }
+
+    note = await Notes.findByIdAndDelete(req.params.id)
+    // Usually when you perform update operations in mongoose, it returns the previous state of the document (before it was updated) and not the updated one. By setting "new" to true in the third argument of the object in "findByIdAndUpdate()", we tell mongoose to return the updated state of the object instead of its default behaviour
+    // res.json(note)
+    res.json({"Success" : "Note deleted", note : note})
+    
+
+    }   
+    catch (error) {
+        console.log(error.message)
+        res.status(500).send("Internal Server Error Occured");
+    }
+    
+
+})
+
 module.exports = router
