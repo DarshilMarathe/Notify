@@ -1,55 +1,57 @@
 import React from "react";
 
+import NoteComponent from "./Notes" 
+
 const Home = () => {
+
+
   return (
     <div>
       <div className="container my-3">
         <h2>Add a note</h2>
 
         <form>
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">
+          <div className="mb-3">
+            <label htmlfor="exampleInputEmail1" className="form-label">
               Email address
             </label>
             <input
               type="email"
-              class="form-control"
+              className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
             />
-            <div id="emailHelp" class="form-text">
+            <div id="emailHelp" className="form-text">
               We'll never share your email with anyone else.
             </div>
           </div>
-          <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">
+          <div className="mb-3">
+            <label htmlfor="exampleInputPassword1" className="form-label">
               Password
             </label>
             <input
               type="password"
-              class="form-control"
+              className="form-control"
               id="exampleInputPassword1"
             />
           </div>
-          <div class="mb-3 form-check">
+          <div className="mb-3 form-check">
             <input
               type="checkbox"
-              class="form-check-input"
+              className="form-check-input"
               id="exampleCheck1"
             />
-            <label class="form-check-label" for="exampleCheck1">
+            <label className="form-check-label" htmlfor="exampleCheck1">
               Check me out
             </label>
           </div>
-          <button type="submit" class="btn btn-primary">
+          <button type="submit" className="btn btn-primary">
             Submit
           </button>
         </form>
       </div>
-      
-      <div className="container my-3">
-        <h1>Your notes</h1>
-      </div>
+
+      <NoteComponent/>
     </div>
   );
 };
