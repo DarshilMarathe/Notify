@@ -53,7 +53,6 @@ const NoteState = (props) =>{
 
       const [notes, setNotes] = useState(notesInitial)
 
-
     return(
         // <noteContext.Provider value ={{state : state,update : update}}>   --same 
         <noteContext.Provider value ={{notes,setNotes}}> 
