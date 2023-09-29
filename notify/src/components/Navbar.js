@@ -7,10 +7,10 @@ const Navbar = () => {
 
   let location = useLocation();
 
-  useEffect(() => {
-    // console.log(location);
-    console.log(location.pathname);
-  }, [location]);
+  // useEffect(() => {
+  //   // console.log(location);
+  //   console.log(location.pathname);
+  // }, [location]);
 
   return (
     <>

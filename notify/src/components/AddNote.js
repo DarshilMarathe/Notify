@@ -13,13 +13,14 @@ const AddNote = () => {
   //Functions to handle input
   const onChange = (e)=>{
     setNote({
-        ...note,[e.target.name]:e.target.value
+        ...note,[e.target.name]:e.target.value    //...note -> keep properties in note , aage joh likha hai unko add or overwrite
     })
-    console.log(note)
+    // console.log(note)
   }
 
-  const handleClick = ()=>{
-
+  const handleClick = (e)=>{
+    e.preventDefault();
+      addnote(note.title,note.description,note.tag);
   }
 
   return (
@@ -29,7 +30,7 @@ const AddNote = () => {
 
         <form>
           <div className="mb-3">
-            <label htmlfor="title" className="form-label">
+            <label htmlFor="title" className="form-label">
               Title
             </label>
             <input
@@ -42,7 +43,7 @@ const AddNote = () => {
             />
           </div>
           <div className="mb-3">
-            <label htmlfor="description" className="form-label">
+            <label htmlFor="description" className="form-label">
               Description
             </label>
             <input
@@ -64,7 +65,7 @@ const AddNote = () => {
             </label>
           </div> */}
           <button type="submit" className="btn btn-primary" onClick={handleClick}>
-            Submit
+            Add Note
           </button>
         </form>
       </div>
