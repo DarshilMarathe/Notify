@@ -23,6 +23,9 @@ const AddNote = () => {
     e.preventDefault();
       addnote(note.title,note.description,note.tag);
       setNote({title:"",description :"",tag:""})
+
+      //can add custom Alert
+      alert("Note Added Successfully")
   }
 
   return (

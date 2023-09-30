@@ -29,6 +29,8 @@ const Login = () => {
             //save auth token and redirect
             localStorage.setItem('token',json.authtoken);
             // history.push("/");
+
+            alert("Successfully Logged In")
             navigate("/");
 
 

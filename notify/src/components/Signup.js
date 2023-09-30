@@ -33,6 +33,9 @@ const Signup = () => {
             if(json.success){
               //save auth token and redirect
               localStorage.setItem('token',json.authtoken);
+
+              //Can use alert bootstrap
+              alert("Successfully Signed In")
                navigate("/");
   
             }
