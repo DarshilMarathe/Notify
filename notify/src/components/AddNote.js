@@ -8,6 +8,7 @@ const AddNote = () => {
   const context = useContext(noteContext);
   const {addnote} = context;
 
+
   const [note, setNote] = useState({title:"",description :"",tag:""})
 
   //Functions to handle input
