@@ -25,10 +25,11 @@ router.post('/createuser',[
     body('email' , 'Enter a valid mail').isEmail(),
     body('password').isLength({min : 5})
 ], async (req,res)=>{
+    let success = false;
     // If there are errors, return bad request & errors
     const errors = validationResult(req);
     if (!errors.isEmpty()) { //error not empty 
-      return res.status(400).json({errors:errors.array()});
+      return res.status(400).json({success , errors:errors.array()});
     // return res.send("ERR") -- my code
     }  
 
@@ -39,7 +40,7 @@ router.post('/createuser',[
     console.log("USERRE")
     console.log(user)
     if(user){
-        return res.status(400).json({error:"User already exists"});
+        return res.status(400).json({success ,error:"User already exists"});
     } 
 
     //Hashing password
@@ -69,7 +70,8 @@ router.post('/createuser',[
     
     // console.log(authtoken);
     // res.json(user)
-    res.json({authtoken});
+    success = true;
+    res.json({success ,authtoken});
 
     }
      catch (error) {
