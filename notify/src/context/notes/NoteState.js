@@ -62,7 +62,7 @@ const NoteState = (props) =>{
       const editnote = async (id,title,description,tag)=>{
 
         //API CALL   -- searched fetch with headers
-        const response = await fetch(`${host}/api/notes/updatenote/650c36c4c7bc97f4199bae7b`, {
+        const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
           method: "PUT", 
          
           headers: {
@@ -71,19 +71,23 @@ const NoteState = (props) =>{
           },
           body: JSON.stringify({title,description,tag}), 
         });
-        const json =  response.json();
+        const json =  await response.json();
+
+
+         //logic to edit in client
       
-
-
-        for(let index=0 ; index < notes.length ; index++){
-          //logic to edit in client
+        let newNotes = JSON.parse(JSON.stringify(notes));
+        for(let index=0 ; index < newNotes.length ; index++){
+         
           const element = notes[index];
           if(element._id === id){
-            element.title = title;
-            element.description = description;
-            element.tag = tag;
+            newNotes[index].title = title;
+            newNotes[index].description = description;
+            newNotes[index].tag = tag;
+            break;
           }
         }
+        setNotes(newNotes);
         
       }
 
