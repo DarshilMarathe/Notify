@@ -40,20 +40,8 @@ const NoteState = (props) =>{
           },
           body: JSON.stringify({title,description,tag}), 
         });
-        const json =  await response.json();
-        console.log(json)
-
-        console.log("Adding a note")
-        // TODO: Call API
-        const note =  {
-          "_id": "650c371609d9d272b3c9b2ee",
-          "user": "650b3b4aaba65b0566487b11",
-          "title": title,
-          "description": description,
-          "tag": "Default Tag",
-          "date": "2023-09-21T12:29:10.909Z",
-          "__v": 0
-        }
+        const note =  await response.json();
+       
         // setNotes(notes.push(note));   --> updates array 
         setNotes(notes.concat(note)); //--> returns array
       }
