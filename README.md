@@ -1,1 +1,1 @@
-# mern-backend
+# Notify - MERN Project
